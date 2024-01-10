@@ -1,0 +1,41 @@
+﻿@page
+@model WebSiteCollege.Models.StudentModel
+@{
+    ViewData["Title"] = "Добавить студента";
+}
+
+<link rel="stylesheet" href="~/css/addStudents.css">
+<div class="container">
+    <div class="form-box">
+        <h2>@ViewData["Title"]</h2>
+
+        <form method="post">
+            <div class="inputbox">
+                <input type="text" id="UserName" name="UserName" required>
+                <label for="UserName">Имя студента:</label>
+            </div>
+
+            <div class="inputbox">
+                <input type="text" id="UserType" name="UserType" required>
+                <label for="UserType">Тип пользователя:</label>
+            </div>
+
+            <div class="inputbox">
+                <input type="text" id="Login" name="Login" required>
+                <label for="Login">Логин:</label>
+            </div>
+
+            <div class="inputbox">
+                <input type="password" id="Password" name="Password" required>
+                <label for="Password">Пароль:</label>
+            </div>
+
+            <div class="inputbox">
+                <input type="text" id="Email" name="Email" required>
+                <label for="Email">Email:</label>
+            </div>
+
+            <button type="submit">Добавить студента</button>
+        </form>
+    </div>
+</div>

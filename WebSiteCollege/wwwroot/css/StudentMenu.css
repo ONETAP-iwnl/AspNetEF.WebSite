@@ -1,0 +1,819 @@
+﻿/* LOKI HEADER */
+
+.loki-header {
+    position: relative;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 1);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    box-sizing: border-box;
+}
+
+    .loki-header *,
+    .loki-header *:before,
+    .loki-header *:after {
+        box-sizing: border-box;
+    }
+
+/* LOKI CONTAINER */
+
+.loki-container {
+    position: relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
+}
+
+/* LOKI HEADER SHADOW */
+
+.loki-header-shadow {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+    .loki-header-shadow:before {
+        display: block;
+        position: relative;
+        content: "";
+        width: 100%;
+        height: 60px;
+        top: -60px;
+        border-radius: 50%;
+        box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.08);
+    }
+
+/* LOKI LOGO */
+
+.loki-logo {
+    padding: 0 0 0 30px;
+    text-align: left;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 50px;
+}
+
+    .loki-logo a {
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: sans-serif;
+        color: #56585A;
+    }
+
+        .loki-logo a img {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+/* LOKI TOGGLE */
+
+.loki-toggle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+    .loki-toggle + label {
+        position: absolute;
+        top: 16.25px;
+        right: 30px;
+        width: 20px;
+        height: 16px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        cursor: pointer;
+        -webkit-transition: -webkit-transform 200ms ease-out;
+        -webkit-transition: transform 200ms ease-out;
+        transition: transform 200ms ease-out;
+    }
+
+        .loki-toggle + label > span {
+            display: block;
+            background-color: #56585A;
+            border-radius: 2px;
+            width: 100%;
+            height: 2px;
+            -webkit-transition: all 200ms;
+            transition: all 200ms;
+        }
+
+            .loki-toggle + label > span:last-child {
+                -webkit-transform-origin: left;
+                -ms-transform-origin: left;
+                transform-origin: left;
+            }
+
+    .loki-toggle:checked + label {
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+        .loki-toggle:checked + label > span:first-child {
+            width: 50%;
+            -webkit-transform: rotate(-90deg) translateX(3px);
+            -ms-transform: rotate(-90deg) translateX(3px);
+            transform: rotate(-90deg) translateX(3px);
+            -webkit-transform-origin: right;
+            -ms-transform-origin: right;
+            transform-origin: right;
+        }
+
+        .loki-toggle:checked + label > span:last-child {
+            width: 50%;
+            -webkit-transform: rotate(-90deg) translateX(-3px) translateY(10px);
+            -ms-transform: rotate(-90deg) translateX(-3px) translateY(10px);
+            transform: rotate(-90deg) translateX(-3px) translateY(10px);
+        }
+
+    .loki-toggle:checked ~ .loki-menu {
+        padding-bottom: 20px;
+    }
+
+        .loki-toggle:checked ~ .loki-menu > ul {
+            display: block;
+        }
+
+            .loki-toggle:checked ~ .loki-menu > ul > li > input:checked ~ a {
+                color: #0fbaf2;
+            }
+
+        .loki-toggle:checked ~ .loki-menu input:checked ~ ul {
+            display: block;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+/* LOKI MENU */
+
+.loki-menu {
+    line-height: 1.5;
+}
+
+    .loki-menu ul {
+        margin: 0;
+        padding: 0;
+        display: none;
+        list-style: none;
+    }
+
+    .loki-menu li {
+        position: relative;
+        list-style: none;
+    }
+
+        .loki-menu li > a {
+            display: block;
+            font-family: sans-serif;
+            color: #56585A;
+            padding: 15px 30px;
+            -webkit-text-decoration: none;
+            text-decoration: none;
+            position: relative;
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+        }
+
+    .loki-menu input[type=checkbox] {
+        position: absolute;
+        width: 0;
+        height: 0;
+        margin: 0;
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+        .loki-menu input[type=checkbox]:checked ~ a > label {
+            -webkit-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+        }
+
+            .loki-menu input[type=checkbox]:checked ~ a > label:before {
+                opacity: 0;
+            }
+
+    .loki-menu label {
+        display: block;
+        position: absolute;
+        cursor: pointer;
+        right: 25px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: 32px;
+        width: 32px;
+        line-height: 1.5;
+        text-align: center;
+        z-index: 1;
+        -webkit-transition: -webkit-transform .4s;
+        -webkit-transition: transform .4s;
+        transition: transform .4s;
+    }
+
+        .loki-menu label:before,
+        .loki-menu label:after {
+            position: absolute;
+            content: "";
+            width: 45%;
+            height: 1px;
+            background-color: #56585A;
+            display: block;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            -webkit-transition: -webkit-transform .4s, opacity .4s;
+            -webkit-transition: transform .4s, opacity .4s;
+            transition: transform .4s, opacity .4s;
+            opacity: 1;
+        }
+
+        .loki-menu label:after {
+            -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+    .loki-menu > ul > li > a {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .loki-menu > ul > li:hover > a,
+    .loki-menu > ul > li.loki-menu-current > a {
+        color: #0fbaf2;
+    }
+
+    .loki-menu ul ul li > a {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: normal;
+        text-transform: none;
+        padding: 12px 30px;
+    }
+
+@media (min-width:1024px) {
+    /* LOKI HEADER */
+    .loki-header {
+        -webkit-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+        position: fixed;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 50px;
+        top: 0;
+        z-index: 99999;
+    }
+
+        .loki-header.loki-header-transparent-dark {
+            background: transparent;
+            position: fixed;
+            left: 0;
+            right: 0;
+            height: 50px;
+            top: 0;
+        }
+
+            .loki-header.loki-header-transparent-dark .loki-logo a {
+                color: #F0F0F0;
+            }
+
+            .loki-header.loki-header-transparent-dark .loki-menu > ul > li > a,
+            .loki-header.loki-header-transparent-dark .loki-toggle:checked ~ .loki-menu > ul > li > input:checked ~ a {
+                color: #F0F0F0;
+            }
+
+                .loki-header.loki-header-transparent-dark .loki-menu > ul > li > a > label {
+                    border-color: #F0F0F0;
+                }
+
+            .loki-header.loki-header-transparent-dark .loki-menu > ul > li:hover > a,
+            .loki-header.loki-header-transparent-dark .loki-toggle:checked ~ .loki-menu > ul > li:hover > input:checked ~ a,
+            .loki-header.loki-header-transparent-dark .loki-menu > ul > li.loki-menu-current > a,
+            .loki-header.loki-header-transparent-dark .loki-toggle:checked ~ .loki-menu > ul > li.loki-menu-current > input:checked ~ a {
+                color: #0fbaf2;
+            }
+
+            .loki-header.loki-header-transparent-dark .loki-menu.loki-menu-style-2 > ul > li:hover > a > label,
+            .loki-header.loki-header-transparent-dark .loki-menu.loki-menu-style-2 > ul > li.loki-menu-current > a > label {
+                border-color: #56585A;
+            }
+
+            .loki-header.loki-header-transparent-dark + .loki-header-spacer {
+                height: 0;
+            }
+
+            .loki-header.loki-header-transparent-dark > .loki-header-shadow {
+                opacity: 0;
+            }
+
+            .loki-header.loki-header-transparent-dark.loki-header-scrolled {
+                background: rgba(0, 0, 0, 1);
+            }
+
+                .loki-header.loki-header-transparent-dark.loki-header-scrolled .loki-logo a {
+                    color: #56585A;
+                }
+
+                .loki-header.loki-header-transparent-dark.loki-header-scrolled .loki-menu > ul > li > a,
+                .loki-header.loki-header-transparent-dark.loki-header-scrolled .loki-toggle:checked ~ .loki-menu > ul > li > input:checked ~ a {
+                    color: #56585A;
+                }
+
+                    .loki-header.loki-header-transparent-dark.loki-header-scrolled .loki-menu > ul > li > a > label {
+                        border-color: #56585A;
+                    }
+
+                .loki-header.loki-header-transparent-dark.loki-header-scrolled .loki-menu > ul > li:hover > a,
+                .loki-header.loki-header-transparent-dark.loki-header-scrolled .loki-toggle:checked ~ .loki-menu > ul > li:hover > input:checked ~ a,
+                .loki-header.loki-header-transparent-dark.loki-header-scrolled .loki-menu > ul > li.loki-menu-current > a,
+                .loki-header.loki-header-transparent-dark.loki-header-scrolled .loki-toggle:checked ~ .loki-menu > ul > li.loki-menu-current > input:checked ~ a {
+                    color: #0fbaf2;
+                }
+
+                .loki-header.loki-header-transparent-dark.loki-header-scrolled .loki-menu.loki-menu-style-3 > ul > li:hover > a > label,
+                .loki-header.loki-header-transparent-dark.loki-header-scrolled .loki-menu.loki-menu-style-3 > ul > li.loki-menu-current > a > label {
+                    border-color: #000000;
+                }
+
+                .loki-header.loki-header-transparent-dark.loki-header-scrolled > .loki-header-shadow {
+                    opacity: 1;
+                }
+
+        .loki-header.loki-header-transparent-light {
+            background: transparent;
+            position: fixed;
+            left: 0;
+            right: 0;
+            height: 50px;
+            top: 0;
+        }
+
+            .loki-header.loki-header-transparent-light .loki-logo a {
+                color: #3A3A3A;
+            }
+
+            .loki-header.loki-header-transparent-light .loki-menu > ul > li > a,
+            .loki-header.loki-header-transparent-light .loki-toggle:checked ~ .loki-menu > ul > li > input:checked ~ a {
+                color: #3A3A3A;
+            }
+
+            .loki-header.loki-header-transparent-light .loki-menu > ul > li:hover > a,
+            .loki-header.loki-header-transparent-light .loki-toggle:checked ~ .loki-menu > ul > li:hover > input:checked ~ a,
+            .loki-header.loki-header-transparent-light .loki-menu > ul > li.loki-menu-current > a,
+            .loki-header.loki-header-transparent-light .loki-toggle:checked ~ .loki-menu > ul > li.loki-menu-current > input:checked ~ a {
+                color: #0fbaf2;
+            }
+
+            .loki-header.loki-header-transparent-light .loki-menu > ul > li > a > label {
+                border-color: #3A3A3A;
+            }
+
+            .loki-header.loki-header-transparent-light .loki-menu.loki-menu-style-2 > ul > li:hover > a > label,
+            .loki-header.loki-header-transparent-light .loki-menu.loki-menu-style-2 > ul > li.loki-menu-current > a > label {
+                border-color: #56585A;
+            }
+
+            .loki-header.loki-header-transparent-light + .loki-header-spacer {
+                height: 0;
+            }
+
+            .loki-header.loki-header-transparent-light > .loki-header-shadow {
+                opacity: 0;
+            }
+
+            .loki-header.loki-header-transparent-light.loki-header-scrolled {
+                background: rgba(0, 0, 0, 1);
+            }
+
+                .loki-header.loki-header-transparent-light.loki-header-scrolled .loki-logo a {
+                    color: #56585A;
+                }
+
+                .loki-header.loki-header-transparent-light.loki-header-scrolled .loki-menu > ul > li > a,
+                .loki-header.loki-header-transparent-light.loki-header-scrolled .loki-toggle:checked ~ .loki-menu > ul > li > input:checked ~ a {
+                    color: #56585A;
+                }
+
+                .loki-header.loki-header-transparent-light.loki-header-scrolled .loki-menu > ul > li:hover > a,
+                .loki-header.loki-header-transparent-light.loki-header-scrolled .loki-toggle:checked ~ .loki-menu > ul > li:hover > input:checked ~ a,
+                .loki-header.loki-header-transparent-light.loki-header-scrolled .loki-menu > ul > li.loki-menu-current > a,
+                .loki-header.loki-header-transparent-light.loki-header-scrolled .loki-toggle:checked ~ .loki-menu > ul > li.loki-menu-current > input:checked ~ a {
+                    color: #0fbaf2;
+                }
+
+                .loki-header.loki-header-transparent-light.loki-header-scrolled .loki-menu > ul > li > a > label {
+                    border-color: #56585A;
+                }
+
+                .loki-header.loki-header-transparent-light.loki-header-scrolled .loki-menu.loki-menu-style-3 > ul > li:hover > a > label,
+                .loki-header.loki-header-transparent-light.loki-header-scrolled .loki-menu.loki-menu-style-3 > ul > li.loki-menu-current > a > label {
+                    border-color: #000000;
+                }
+
+                .loki-header.loki-header-transparent-light.loki-header-scrolled > .loki-header-shadow {
+                    opacity: 1;
+                }
+    /* LOKI CONTAINER */
+    .loki-container {
+        height: 50px;
+        padding: 0 30px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+    /* LOKI HEADER SHADOW */
+    .loki-header-shadow {
+        z-index: -1;
+    }
+    /* LOKI LOGO */
+    .loki-logo {
+        position: relative;
+        padding: 0;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        line-height: 50px;
+    }
+
+        .loki-logo a {
+            line-height: unset;
+        }
+
+            .loki-logo a img {
+                display: block;
+            }
+
+    .loki-header-spacer {
+        height: 50px;
+    }
+
+    .loki-toggle:checked ~ .loki-menu {
+        padding-bottom: 0;
+    }
+
+        .loki-toggle:checked ~ .loki-menu input:checked ~ ul {
+            background: rgba(0, 0, 0, 1);
+        }
+
+        .loki-toggle:checked ~ .loki-menu > ul {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+            .loki-toggle:checked ~ .loki-menu > ul > li > input:checked ~ a {
+                color: #56585A;
+                background-color: transparent;
+            }
+
+            .loki-toggle:checked ~ .loki-menu > ul > li:hover > input:checked ~ a,
+            .loki-toggle:checked ~ .loki-menu > ul > li.loki-menu-current > input:checked ~ a {
+                color: #0fbaf2;
+            }
+
+    .loki-toggle + label {
+        opacity: 0;
+        pointer-events: none;
+    }
+    /* LOKI MENU */
+    .loki-menu {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        margin-right: auto;
+        ;
+    }
+
+        .loki-menu ul {
+            display: block;
+            font-size: 0;
+        }
+
+        .loki-menu li:hover > a {
+            opacity: 1;
+            color: #0fbaf2;
+        }
+
+        .loki-menu label {
+            bottom: 3px;
+            right: 5px;
+            height: 6px;
+            width: 6px;
+            border-style: solid;
+            border-color: #ffffff;
+            border-width: 0px 1px 1px 0px;
+            -webkit-transform: rotate(-45deg) !important;
+            -ms-transform: rotate(-45deg) !important;
+            transform: rotate(-45deg) !important;
+        }
+
+            .loki-menu label:before,
+            .loki-menu label:after {
+                content: none;
+            }
+
+        .loki-menu > ul {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            ;
+        }
+
+            .loki-menu > ul > li {
+                display: inline-block;
+                ;
+            }
+
+                .loki-menu > ul > li > a {
+                    position: relative;
+                    height: 50px;
+                    line-height: 50px;
+                    white-space: nowrap;
+                    padding: 0 20px;
+                }
+
+                .loki-menu > ul > li:last-child > a {
+                    padding: 0 0 0 20px;
+                }
+
+                .loki-menu > ul > li > a > label {
+                    position: relative;
+                    display: inline-block;
+                    margin-left: 15px;
+                    right: inherit;
+                    bottom: inherit;
+                    vertical-align: middle;
+                    top: -2px;
+                    -webkit-transform: rotate(45deg) !important;
+                    -ms-transform: rotate(45deg) !important;
+                    transform: rotate(45deg) !important;
+                    border-color: #56585A;
+                }
+
+        .loki-menu li > ul {
+            border-top-width: 3px;
+            border-top-style: solid;
+            border-top-color: #0fbaf2;
+            display: block;
+            position: absolute;
+            width: 230px;
+            background: rgba(0, 0, 0, 1);
+            padding: 12px 0;
+            box-shadow: 0px 12px 30px -2px rgba(0, 0, 0, 0.1);
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            z-index: 1;
+            will-change: transform, opacity;
+            pointer-events: none;
+            visibility: hidden;
+            opacity: 0;
+            top: 100%;
+            left: 0;
+        }
+
+        .loki-menu li:hover > ul {
+            opacity: 1;
+            pointer-events: auto;
+            visibility: visible;
+        }
+
+        .loki-menu li > ul ul {
+            left: 100%;
+            top: -15px;
+        }
+
+        .loki-menu li > ul label {
+            position: absolute;
+            right: 20px;
+        }
+
+        .loki-menu li.loki-submenu-right > ul {
+            left: inherit;
+            right: 0;
+        }
+
+            .loki-menu li.loki-submenu-right > ul ul {
+                left: -100%;
+                right: 0;
+            }
+
+        .loki-menu ul ul li > a {
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .loki-menu.loki-submenu-bordered ul ul li:after {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 1px;
+            background: #111;
+        }
+
+        .loki-menu.loki-submenu-bordered ul ul li:last-child:after {
+            display: none;
+        }
+
+        .loki-menu.loki-menu-style-1 > ul > li > a:before {
+            position: absolute;
+            content: "";
+            top: 50%;
+            right: 0;
+            width: 1px;
+            height: 20px;
+            background: rgba(86, 88, 90, 0.15);
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        .loki-menu.loki-menu-style-1 > ul > li:last-child > a:before {
+            display: none;
+        }
+
+        .loki-menu.loki-menu-style-1 > ul > li:hover > a,
+        .loki-menu.loki-menu-style-1 > ul > li.loki-menu-current > a {
+            color: #0fbaf2 !important;
+            background-color: transparent !important;
+        }
+
+        .loki-menu.loki-menu-style-2 > ul > li > a:after {
+            position: absolute;
+            content: '';
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 3px;
+            background: #0fbaf2;
+            opacity: 0;
+            z-index: 0;
+            -webkit-transition: opacity 0.4s ease-in-out;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .loki-menu.loki-menu-style-2 > ul > li:last-child > a {
+            padding: 0 20px;
+        }
+
+        .loki-menu.loki-menu-style-2 > ul > li:hover > a,
+        .loki-menu.loki-menu-style-2 > ul > li.loki-menu-current > a {
+            color: #56585A !important;
+            background-color: #161616 !important;
+        }
+
+            .loki-menu.loki-menu-style-2 > ul > li:hover > a:after,
+            .loki-menu.loki-menu-style-2 > ul > li.loki-menu-current > a:after {
+                opacity: 1;
+            }
+
+        .loki-menu.loki-menu-style-3 > ul > li:last-child > a {
+            padding: 0 20px;
+        }
+
+        .loki-menu.loki-menu-style-3 > ul > li:hover > a,
+        .loki-menu.loki-menu-style-3 > ul > li.loki-menu-current > a {
+            color: #000000 !important;
+            background-color: #0fbaf2 !important;
+        }
+
+            .loki-menu.loki-menu-style-3 > ul > li:hover > a > label,
+            .loki-menu.loki-menu-style-3 > ul > li.loki-menu-current > a > label {
+                border-color: #000000;
+            }
+
+        .loki-menu.loki-submenu-scale li > ul {
+            -webkit-transform: scale(0.5);
+            -ms-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: 0 0;
+            -ms-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+
+        .loki-menu.loki-submenu-scale li.loki-submenu-right > ul,
+        .loki-menu.loki-submenu-scale li.loki-submenu-right > ul ul {
+            -webkit-transform-origin: 100% 0;
+            -ms-transform-origin: 100% 0;
+            transform-origin: 100% 0;
+        }
+
+        .loki-menu.loki-submenu-scale li:hover > ul {
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+        }
+
+        .loki-menu.loki-submenu-swing-out li {
+            -webkit-perspective: 1000px;
+            -moz-perspective: 1000px;
+            -ms-perspective: 1000px;
+            perspective: 1000px;
+        }
+
+            .loki-menu.loki-submenu-swing-out li > ul {
+                -webkit-transform: rotateX(-45deg);
+                -ms-transform: rotateX(-45deg);
+                transform: rotateX(-45deg);
+                -webkit-transform-origin: 0 0;
+                -ms-transform-origin: 0 0;
+                transform-origin: 0 0;
+            }
+
+                .loki-menu.loki-submenu-swing-out li > ul ul {
+                    -webkit-transform: rotateY(45deg);
+                    -ms-transform: rotateY(45deg);
+                    transform: rotateY(45deg);
+                    -webkit-transform-origin: 0 0;
+                    -ms-transform-origin: 0 0;
+                    transform-origin: 0 0;
+                }
+
+            .loki-menu.loki-submenu-swing-out li.loki-submenu-right > ul {
+                -webkit-transform-origin: 100% 0;
+                -ms-transform-origin: 100% 0;
+                transform-origin: 100% 0;
+            }
+
+                .loki-menu.loki-submenu-swing-out li.loki-submenu-right > ul ul {
+                    -webkit-transform: rotateY(-45deg);
+                    -ms-transform: rotateY(-45deg);
+                    transform: rotateY(-45deg);
+                    -webkit-transform-origin: 100% 0;
+                    -ms-transform-origin: 100% 0;
+                    transform-origin: 100% 0;
+                }
+
+            .loki-menu.loki-submenu-swing-out li:hover > ul {
+                -webkit-transform: rotate(0deg) !important;
+                -ms-transform: rotate(0deg) !important;
+                transform: rotate(0deg) !important;
+            }
+
+        .loki-menu.loki-submenu-slide-up li > ul {
+            -webkit-transform: translateY(15px);
+            -ms-transform: translateY(15px);
+            transform: translateY(15px);
+        }
+
+        .loki-menu.loki-submenu-slide-up li:hover > ul {
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+        .loki-menu.loki-submenu-slide-down li > ul {
+            -webkit-transform: translateY(-15px);
+            -ms-transform: translateY(-15px);
+            transform: translateY(-15px);
+        }
+
+        .loki-menu.loki-submenu-slide-down li:hover > ul {
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+}
